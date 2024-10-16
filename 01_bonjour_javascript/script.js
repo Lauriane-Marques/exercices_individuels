@@ -1,14 +1,23 @@
-function sayHello(firstName){
+function sayHello(firstName,hour){
 
 /*let message = "Bonjour !"
 console.log(message)*/
 
+messageJour = `Bonjour ${firstName}!`
+messageNuit = `Bonsoir ${firstName}!`
 
-message = `Bonjour ${firstName} !`
+    if (hour >= 18) {
+        console.log(messageNuit)
+    } 
+    else {
+        console.log(messageJour)
+    }
 
-console.log(message)
 }
 
 let firstName = "Beyoncé"
 
-sayHello(firstName)
+
+sayHello(firstName,11)
+sayHello(firstName,18)
+sayHello(firstName,17)
