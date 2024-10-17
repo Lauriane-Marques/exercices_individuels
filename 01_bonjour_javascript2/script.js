@@ -1,4 +1,4 @@
-function sayHello(name,hour){
+/*function sayHello(name,hour){
 
 messageJour = `Bonjour ${name}!`
 messageNuit = `Bonsoir ${name}!`
@@ -10,9 +10,15 @@ messageNuit = `Bonsoir ${name}!`
         console.log(messageJour)
 }
 }
+*/
 
-let firstName = "Beyoncé"
+let personnalName = window.prompt ("Quel est ton nom?")
 
-sayHello(firstName,11)
-sayHello(firstName,18)
-sayHello(firstName,17)
+//let firstName = "Beyoncé"
+
+function sayHello(name){
+    let message = `Bonjour ${name} !`
+    document.querySelector('h1').innerText = message;
+}
+
+sayHello(personnalName)
