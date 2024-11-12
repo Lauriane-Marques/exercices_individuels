@@ -9,14 +9,17 @@ console.log(givenNumber)
 
 function didIWin(userGuess){
     userGuess = userNumber()
-    if (userGuess<22){
-        alert("Plus grand")
-    }
-    else if (userGuess>22) {
-        alert("Plus petit")
-    }
-    else {
+    if (userGuess === 22){
         alert("Bravo! Vous avez deviné le nombre.")
+        return true
+    }
+    else if (userGuess<22){
+        alert("Le nombre à trouver est plus grand")
+        return false
+    }
+    else if (userGuess>22){
+        alert("Le nombre à trouver est plus petit")
+        return false
     }
  }
 
@@ -24,6 +27,15 @@ function didIWin(userGuess){
 const gamePlay = () => {
     userNumber()
     didIWin(givenNumber)
+    if (didIWin(givenNumber)==true){
+        alert("Bravo! Vous avez deviné le nombre.")
+    }
+    else {
+        userNumber()
+        didIWin(givenNumber)
+    }
  }
 
- // Cette partie fonctionne mais le prompt s'affiche 3 fois avant de me donner ma réponse (mais la réponse est correcte)
+ gamePlay()
+
+ 
