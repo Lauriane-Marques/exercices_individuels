@@ -1,9 +1,18 @@
 let matchesInit = 50
 
-function takeMatches(matchesNumber){
-    let matchesRest = matchesInit - matchesNumber
-    return matchesRest
+function askPlayer() {
+    let playerChoice = Number(prompt("Combien d'allumettes voulez-vous retirer ?"))
+    return playerChoice
 }
 
-console.log(takeMatches(4))
-console.log(takeMatches(3))
+
+function takeMatches(matchesNumber){
+    matchesInit = matchesInit - matchesNumber
+    return matchesInit
+}
+
+while (matchesInit > 0){
+    let playerMatches = askPlayer()
+    takeMatches(playerMatches)
+    console.log(matchesInit)
+}
