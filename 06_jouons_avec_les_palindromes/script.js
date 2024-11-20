@@ -28,7 +28,7 @@ function isValidDate(date){
     const maxDays = maxDaysInMonth(month)
 
     if (day <= maxDays && month >= 01 && month <=12 && year > 999 && year <= 9999){
-        console.log("true")
+        console.log("true") //sans le console.log je ne vois pas la valeur dans ma console, pourtant il me semblait que c'était possible
         return true
     }
     else{
@@ -37,17 +37,35 @@ function isValidDate(date){
     }
 }
 
-const dateTest = "22/11/2023" 
-isValidDate(dateTest)
+const dateTest = "11/02/2011" 
+//isValidDate(dateTest)
 
 function isPalindrome(date){
     const onlyNumbers = date.split('/') //on récupère les chiffres sans les /
     //console.log(onlyNumbers)
     const numberString = onlyNumbers.join(''); //on rassemble les trois élements en un seul
-    console.log(numberString)
+    //console.log(numberString)
+    
+    /*  //premiers essais
     //const reversedNumbers = onlyNumbers.reverse() //Ne fonctionne pas, il semblerait qu'on ne puisse inverser qu'un tableau de valeurs
+    
     const reversedNumbers = onlyNumbers.reverse().join('') //dans ce cas on inverse le tableau puis on rassemble les éléments
-    console.log(reversedNumbers) //ça inverse les éléments du tableaux mais pas les chiffres car 2023 reste 2023 dans mon test
+    console.log(reversedNumbers) //ça inverse les éléments du tableaux mais pas les chiffres car 2023 reste 2023 dans mon test */
+
+    //deuxième essai
+    const separatedNumbers = numberString.split('') //je n'arrive à séparer les chiffres qu'une fois qu'ils ont été rassemblés
+    //console.log(separatedNumbers)
+    const reversedNumbers = separatedNumbers.reverse().join('') //on inverse le tableau puis on rassemble les éléments à nouveau
+    //console.log(reversedNumbers)
+
+    if (numberString === reversedNumbers){
+        console.log("C'est un palindrome")
+        return true
+    }
+    else {
+        console.log("Ce n'est pas un palindrome ou la date n'est pas valide")
+        return false
+    }
 
 }
 
