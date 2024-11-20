@@ -39,3 +39,16 @@ function isValidDate(date){
 
 const dateTest = "22/11/2023" 
 isValidDate(dateTest)
+
+function isPalindrome(date){
+    const onlyNumbers = date.split('/') //on récupère les chiffres sans les /
+    //console.log(onlyNumbers)
+    const numberString = onlyNumbers.join(''); //on rassemble les trois élements en un seul
+    console.log(numberString)
+    //const reversedNumbers = onlyNumbers.reverse() //Ne fonctionne pas, il semblerait qu'on ne puisse inverser qu'un tableau de valeurs
+    const reversedNumbers = onlyNumbers.reverse().join('') //dans ce cas on inverse le tableau puis on rassemble les éléments
+    console.log(reversedNumbers) //ça inverse les éléments du tableaux mais pas les chiffres car 2023 reste 2023 dans mon test
+
+}
+
+isPalindrome(dateTest)
