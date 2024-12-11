@@ -1,0 +1,25 @@
+<!-- STEP 1 -->
+CREATE TABLE edusign (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    firstname TEXT NOT NULL,
+    lastname TEXT NOT NULL,
+    email TEXT NOT NULL,
+    signature_time DATETIME NOT NULL
+);
+
+<!-- STEP 2 -->
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    firstname TEXT NOT NULL,
+    lastname TEXT NOT NULL,
+    email TEXT NOT NULL
+);
+
+ALTER TABLE edusign
+DROP COLUMN firstname;
+DROP COLUMN lastname;
+DROP COLUMN email;
+
+ALTER TABLE edusign
+ADD COLUMN user_id INTEGER REFERENCES users(id);
+
