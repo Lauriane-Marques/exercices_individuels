@@ -52,9 +52,21 @@ VALUES ('2024-09-01 09:30:00', 1)
 ('2024-09-01 09:30:00', 4)
 <!-- Il y a sûrement mieux à faire pour tous les ajouter d'un coup -->
 
+3bis. INSERT INTO edusign (signature_time, user_id)
+SELECT datetime('2024-09-01 09:30:00'), id FROM users
+
 4. SELECT * FROM edusign
 ORDER BY signature_time DESC
 <!-- ça fonctionne comme demandé mais j'ai l'impression que j'aurai dû mettre deux conditions -->
 
 5. SELECT * FROM edusign
 WHERE signature_time='2024-05-30 09:30:00'
+
+<!-- Niveau moyen + -->
+
+1. SELECT signature_time,
+COUNT(signature_time)
+FROM edusign
+GROUP BY signature_time;
+
+2. 
