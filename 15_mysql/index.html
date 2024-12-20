@@ -69,4 +69,6 @@ COUNT(signature_time)
 FROM edusign
 GROUP BY signature_time;
 
-2. 
+2. SELECT COUNT(*) AS volume FROM edusign
+JOIN users ON edusign.user_id = users.id
+WHERE firstname = 'Bella'
