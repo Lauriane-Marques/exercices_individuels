@@ -6,8 +6,7 @@ function userNumber(){
 }
 
 
-function didIWin(userGuess){
-    let numToGuess = 22
+function didIWin(userGuess, numToGuess){
     if(userGuess < numToGuess){
         alert('Le nombre à deviner est plus grand')
         return false
@@ -22,12 +21,26 @@ function didIWin(userGuess){
     }
 }
 
+function numberToGuess(){
+    let givenGuess = prompt('Choisissez un nombre à faire deviner')
+    
+    while (true){
+        if(givenGuess > 0 && givenGuess < 50){
+            break;
+        }
+        givenGuess = prompt('Choisissez un nombre entre 0 et 50 à faire deviner')
+    }
+    return givenGuess
+}
+
 function gamePlay(){
-        let givenNumber = userNumber()
-        let isWon = didIWin(givenNumber)
+    let rightAnswer = numberToGuess()
+    let givenNumber = userNumber()
+    let isWon = didIWin(givenNumber, rightAnswer)
+    
     while (!isWon){
         givenNumber = userNumber()
-        isWon = didIWin(givenNumber)
+        isWon = didIWin(givenNumber, rightAnswer)
     }
 }
 
