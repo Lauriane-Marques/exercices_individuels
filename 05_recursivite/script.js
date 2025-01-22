@@ -54,19 +54,30 @@ function afficherDossierIteratif(dossier){
 
 //afficherDossierIteratif(dossierPrincipal)
 
+function afficherDossierRecursif(dossier){
+  if(dossier.contenu === undefined){
+    return
+  }
+  console.log(dossier.nom)
+  for(const item of dossier.contenu){
+    console.log(item.nom)
+    afficherDossierRecursif(item.nom)
+  }
+}
 
+//afficherDossierRecursif(dossierPrincipal)
 
 //ETAPE 3
 
-function afficherDossierRecursif(dossier){
+function afficherDossierRecursifBis(dossier){
   if(dossier.contenu === undefined){
     return
 }
   //console.log(dossier.nom)
   for(const item of dossier.contenu){
     console.log(item.nom)
-    afficherDossierRecursif(item)
+    afficherDossierRecursifBis(item)
   }
 }
 
-afficherDossierRecursif(dossierPrincipal)
+//afficherDossierRecursifBis(dossierPrincipal)
