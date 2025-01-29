@@ -1,22 +1,29 @@
 //Deuxième itération de cet exercice
 
+const GUESS = document.getElementById('guess')
+const GUESS_BAR = document.getElementById('guess-bar')
+const VALID_BTN = document.getElementById('valid-btn')
+const MESSAGE = document.getElementById('message')
+
+let userTries = 0
+
 function userNumber(){
-    let givenNumber = prompt('Essayez de deviner le chiffre')
+    let givenNumber = GUESS_BAR.value
     return givenNumber
 }
 
 
 function didIWin(userGuess, numToGuess){
     if(userGuess < numToGuess){
-        alert('Le nombre à deviner est plus grand')
+        MESSAGE.innerText='Le nombre à deviner est plus grand'
         return false
     }
     else if (userGuess > numToGuess){
-        alert('Le nombre à deviner est plus petit')
+        MESSAGE.innerText='Le nombre à deviner est plus petit'
         return false
     }
     else {
-        alert('Bravo! Vous avez trouvé le bon nombre')
+        MESSAGE.innerText='Bravo! Vous avez trouvé le bon nombre'
         return true
     }
 }
@@ -33,15 +40,15 @@ function numberToGuess(){
     return givenGuess
 }
 
-function gamePlay(){
-    let rightAnswer = numberToGuess()
+function gamePlay(numToGuess){
     let givenNumber = userNumber()
-    let isWon = didIWin(givenNumber, rightAnswer)
+    let isWon = didIWin(givenNumber, numToGuess)
     
     while (!isWon){
         givenNumber = userNumber()
-        isWon = didIWin(givenNumber, rightAnswer)
+        isWon = didIWin(givenNumber, numToGuess)
     }
 }
+let rightAnswer = numberToGuess()
 
-gamePlay()
+VALID_BTN.addEventListener('click', gamePlay(rightAnswer))

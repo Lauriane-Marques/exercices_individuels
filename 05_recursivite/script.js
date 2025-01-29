@@ -1,3 +1,5 @@
+import { grosDossierPrincipal } from "./otherFile.js"
+
 const dossierPrincipal = {
     nom: '🗂️ Ada',
     contenu: [{
@@ -36,6 +38,7 @@ const dossierPrincipal = {
       },
     ],
   }
+
 
 function afficherDossier(dossier){
   console.log(dossier.nom)
@@ -80,4 +83,4 @@ function afficherDossierRecursifBis(dossier){
   }
 }
 
-//afficherDossierRecursifBis(dossierPrincipal)
+afficherDossierRecursifBis(grosDossierPrincipal)
