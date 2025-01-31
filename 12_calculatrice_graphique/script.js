@@ -31,12 +31,26 @@ function clearScreen(){
 }
 
 function calculate(){
-    let terms = screen.innerText.split('+')
-    let result = 0
-    for (let i = 0 ; i < terms.length; i++){
-        result += Number(terms[i])
+    
+    if (screen.innerText.includes('+')){
+        let terms = screen.innerText.split('+')
+        let additionResult = 0
+        for (let i = 0 ; i < terms.length; i++){
+            additionResult += Number(terms[i])
+        }
+        screen.innerText = additionResult
     }
-    screen.innerText = result
+
+    else if (screen.innerText.includes('-')){
+        let terms = screen.innerText.split('-')
+        let subResult = terms[0]
+        for (let i = 1; i<terms.length; i++){
+            subResult -= Number(terms[i])
+        }
+        screen.innerText = subResult
+    }
+
+    
 }
 
 let btns = document.querySelectorAll('button');
