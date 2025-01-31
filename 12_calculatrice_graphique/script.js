@@ -19,15 +19,36 @@ let screen = document.getElementById('screen')
 
 function displayCalc (pointer) {
 
-    const clickedNumber = pointer.target; 
-    const number = clickedNumber.textContent;
-    console.log(number)
+    const clickedBtn = pointer.target; 
+    const value = clickedBtn.textContent;
+    console.log(value)
 
-    screen.innerText += number
+    screen.innerText += value
+}
+
+function clearScreen(){
+    screen.innerText=''
+}
+
+function calculate(){
+    let terms = screen.innerText.split('+')
+    let result = 0
+    for (let i = 0 ; i < terms.length; i++){
+        result += Number(terms[i])
+    }
+    screen.innerText = result
 }
 
 let btns = document.querySelectorAll('button');
 btns.forEach( btn => {
-
+    if (btn.id === 'btn-clear'){
+        btn.addEventListener('click', clearScreen);
+    }
+    else if (btn.id === 'btn='){
+        btn.addEventListener('click', calculate)
+    }
+    else {
     btn.addEventListener('click', displayCalc);
+    }
 })
+
