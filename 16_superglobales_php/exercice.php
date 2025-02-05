@@ -7,20 +7,23 @@
 </form>
 
     <?php 
+session_start();
 
-$Gfirstname = $_GET["first_name"];
-$Pfirstname = $_POST["input"]; 
-
-    if (isset($_POST["input"])) {
-        $Pfirstname = $_POST["input"];
-        echo "Hello $Pfirstname via POST";
-    } elseif ($Gfirstname){
-        echo "Hello $Gfirstname via GET";
+    
+    if(isset($_GET["first_name"])){
+        $first_name = $_GET['first_name'];
+    }elseif (isset($_POST["input"])) {
+        $first_name = $_POST["input"];
+        $_SESSION["first_name"] = $_POST["input"];
+    } elseif (isset($_SESSION["first_name"])){
+        $first_name = $_SESSION["first_name"];
     }else{
-        echo 'Hello anonyme';
+        $first_name = "anonyme";
     }
-    ?>
+        echo "variable de section : " .$_SESSION["first_name"] . '<br>';
+        echo "Bonjour " . $first_name;
 
+    ?>
 
 </body>
 </html>
