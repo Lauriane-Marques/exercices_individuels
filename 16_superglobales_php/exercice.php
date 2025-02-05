@@ -20,10 +20,20 @@ session_start();
     }else{
         $first_name = "anonyme";
     }
+
+    if(isset($_POST['reset'])) {
+        unset($_SESSION['first_name']);  
+    }
+
         echo "variable de section : " .$_SESSION["first_name"] . '<br>';
         echo "Bonjour " . $first_name;
 
     ?>
+
+<form method="post">
+        <input type="submit" name="reset"
+                value="Reset"/>    
+</form>
 
 </body>
 </html>
