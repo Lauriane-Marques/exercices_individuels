@@ -12,7 +12,7 @@ session_start();
     
     if(isset($_GET["first_name"])){
         $first_name = $_GET['first_name'];
-    }elseif (isset($_POST["input"])) {
+    }elseif (isset($_POST["input"]) and $_POST["input"] !== '') {
         $first_name = $_POST["input"];
         $_SESSION["first_name"] = $_POST["input"];
     } elseif (isset($_SESSION["first_name"])){
