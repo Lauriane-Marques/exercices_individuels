@@ -27,3 +27,4 @@ app.listen(port, (error) =>{
     })
 
 //J'ai testé les requêtes avec Thunder Client sur VScode
+// Body : {"sort_order": "asc", "values": [3, 2, 4, 1]}
