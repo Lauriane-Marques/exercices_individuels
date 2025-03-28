@@ -9,9 +9,13 @@ app.post("/sort", (req, res) => {
     const arr = req.body.values
 
     if (order == 'asc'){
-        res.send(`Order the following values : [${arr}] by ascending order`)
-        } else {
-        res.send(`Order the following values : [${arr}] by descending order`)
+        res.send(`Order the following values : [${arr}] by ascending order
+            Result : ${arr.sort()}`)
+    } else if (order == 'desc') {
+        res.send(`Order the following values : [${arr}] by descending order
+            Result : ${arr.sort().reverse()}`)
+    } else {
+        res.send('There is an error in the sorting order')
     }
 })
 
@@ -21,3 +25,5 @@ app.listen(port, (error) =>{
     else 
         console.log("Error occurred, server can't start", error);
     })
+
+//J'ai testé les requêtes avec Thunder Client sur VScode
